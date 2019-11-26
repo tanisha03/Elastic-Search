@@ -34,6 +34,16 @@ def search():
     if request.method == "GET":
         return render_template("search.html")
 
+    if request.method == "POST":
+        a = request.form["word"]
+        result = index1.lookup_query(a)
+        for term in result.keys():
+            for appearance in result[term]:
+                # Belgium: { docId: 1, frequency: 1}
+                document = db.get(appearance.docId)
+                print(appearance.docId, ": ", document["text"])
+            return render_template("final.html", ans=document["text"])
+
 
 def main():
     db = Database()
