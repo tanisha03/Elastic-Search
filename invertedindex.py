@@ -9,12 +9,6 @@ class InvertedIndex:
         self.index = dict()
         self.db = db
 
-    # def __repr__(self):
-    #     """
-    #     String representation of the Database object
-    #     """
-    #     return str(self.index)
-
     # save text to the database
     def index_document(self, document):
         # Remove punctuation from the text.

@@ -8,8 +8,3 @@ class Appearance:
         self.docId = docId
         self.frequency = frequency
 
-    # def __repr__(self):
-    #     """
-    #     String representation of the Appearance object
-    #     """
-    #     return str(self.__dict__)
