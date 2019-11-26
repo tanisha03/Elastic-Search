@@ -13,11 +13,8 @@ index1 = InvertedIndex(db)
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "GET":
-        # if "db" not in session:
-        #     session["db"] = Database()
-        # if "index" not in session:
-        #     session["index"] = InvertedIndex(session["db"])
         return render_template("index.html")
+
     if request.method == "POST":
         a = request.form["para"]
         for para in a.split("\n"):
