@@ -1,5 +1,41 @@
 from database import Database
 from invertedindex import InvertedIndex
+from flask import Flask, redirect, render_template, request, session, url_for
+
+app = Flask(__name__)
+
+# Secret key for sessions
+app.secret_key = "secret"
+db = Database()
+index1 = InvertedIndex(db)
+
+
+@app.route("/", methods=["GET", "POST"])
+def index():
+    if request.method == "GET":
+        # if "db" not in session:
+        #     session["db"] = Database()
+        # if "index" not in session:
+        #     session["index"] = InvertedIndex(session["db"])
+        return render_template("index.html")
+    if request.method == "POST":
+        a = request.form["para"]
+        for para in a.split("\n"):
+            if "count" not in session:
+                session["count"] = 0
+            else:
+                session["count"] += 1
+            d = {}
+            d["id"] = session["count"]
+            d["text"] = para
+            index1.index_document(d)
+        return redirect(url_for("search"))
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    if request.method == "GET":
+        return render_template("search.html")
 
 
 def main():
@@ -24,4 +60,5 @@ def main():
         print("-----------------------------")
 
 
-main()
+if __name__ == "__main__":
+    app.run(debug=True)
