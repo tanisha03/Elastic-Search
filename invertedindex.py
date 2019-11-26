@@ -3,25 +3,20 @@ import re
 
 
 class InvertedIndex:
-    """
-    Inverted Index class.
-    """
+    # Inverted Index class.
 
     def __init__(self, db):
         self.index = dict()
         self.db = db
 
-    def __repr__(self):
-        """
-        String representation of the Database object
-        """
-        return str(self.index)
+    # def __repr__(self):
+    #     """
+    #     String representation of the Database object
+    #     """
+    #     return str(self.index)
 
+    # save text to the database
     def index_document(self, document):
-        """
-        Process a given document, save it to the DB and update the index.
-        """
-
         # Remove punctuation from the text.
         clean_text = re.sub(r"[^\w\s]", "", document["text"])
         terms = clean_text.split(" ")
@@ -45,12 +40,8 @@ class InvertedIndex:
         self.db.add(document)
         return document
 
+    # returns the dictionary with the corresponding appearance
     def lookup_query(self, query):
-        """
-        Returns the dictionary of terms with their correspondent Appearances. 
-        This is a very naive search since it will just split the terms and show
-        the documents where they appear.
-        """
         return {
             term: self.index[term] for term in query.split(" ") if term in self.index
         }
