@@ -23,7 +23,7 @@ To run the app locally, follow the steps given below
 
 *After clicking on submit, you are redirected to a new page:*
 
-![Screenshot from 2019-11-28 01-24-14](/home/tanisha/Documents/Elastic-Search/static/images/Screenshot from 2019-11-28 01-24-14.png)
+![Screenshot from 2019-11-28 01-24-14](https://github.com/tanisha03/Elastic-Seach/blob/master/static/images/Screenshot%20from%202019-11-28%2001-24-14.png)
 
 *Finally, the last page shows the paragraphs containing the given word using inverted indexing:*
 
