@@ -44,7 +44,7 @@ def search():
                 document = db.get(appearance.docId)
                 print(appearance.docId, ": ", document["text"])
                 a.append((document["text"], appearance.frequency))
-        a = sorted(a, key=lambda x: x[1])
+        a = sorted(a, key=lambda x: x[1], reverse=True)
         if a == []:
             a.append("Not Found")
         elif len(a) > 10:
