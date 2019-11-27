@@ -1,9 +1,13 @@
 <!DOCTYPE html>
   <head>
-      <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/main.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/main1.css')}}">
     </head>
   <body>
     <div class="nav">TAP-SEARCH</div>
-        {% for a in ans%} {{a}} {% endfor %}
+    <div class="container">
+        {% for a in ans%} 
+        <p class="content">{{a}}</p>
+        {% endfor %}
+    </div>
   </body>
 </html>

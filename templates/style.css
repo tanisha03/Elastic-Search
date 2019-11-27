@@ -27,6 +27,18 @@ textarea:focus {
   border: 1px solid #1b2a33;
   width: 100%;
 }
+input[type="text"] {
+  width: 70%;
+  height: 80px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  transition: all 0.4s ease-in-out;
+}
+input[type="text"]:focus {
+  border: 1px solid #1b2a33;
+  width: 100%;
+}
 input[type="submit"] {
   background-color: #1b2a33;
   padding: 10px;
@@ -39,4 +51,5 @@ input[type="submit"] {
 
 .content {
   font-size: 30px;
+  margin: 20px;
 }
