@@ -17,14 +17,14 @@ def index():
 
     if request.method == "POST":
         a = request.form["para"]
-        for para in a.split("\n"):
+        for para in a.splitlines():
             if "count" not in session:
                 session["count"] = 0
             else:
                 session["count"] += 1
             d = {}
             d["id"] = session["count"]
-            d["text"] = para
+            d["text"] = para.lower()
             index1.index_document(d)
         return redirect(url_for("search"))
 
@@ -35,7 +35,7 @@ def search():
         return render_template("search.html")
 
     if request.method == "POST":
-        a = request.form["word"]
+        a = request.form["word"].lower()
         result = index1.lookup_query(a)
         a = []
         for term in result.keys():
@@ -47,26 +47,26 @@ def search():
             return render_template("final.html", ans=a)
 
 
-def main():
-    db = Database()
-    index = InvertedIndex(db)
-    document1 = {"id": "1", "text": "The big sharks of Belgium drink beer."}
-    document2 = {
-        "id": "2",
-        "text": "Belgium has great beer. They drink beer all the time.",
-    }
-    index.index_document(document1)
-    index.index_document(document2)
+# def main():
+#     db = Database()
+#     index = InvertedIndex(db)
+#     document1 = {"id": "1", "text": "The big sharks of Belgium drink beer."}
+#     document2 = {
+#         "id": "2",
+#         "text": "Belgium has great beer. They drink beer all the time.",
+#     }
+#     index.index_document(document1)
+#     index.index_document(document2)
 
-    search_term = input("Enter term(s) to search: ")
-    result = index.lookup_query(search_term)
+#     search_term = input("Enter term(s) to search: ")
+#     result = index.lookup_query(search_term)
 
-    for term in result.keys():
-        for appearance in result[term]:
-            # Belgium: { docId: 1, frequency: 1}
-            document = db.get(appearance.docId)
-            print(appearance.docId, ": ", document["text"])
-        print("-----------------------------")
+#     for term in result.keys():
+#         for appearance in result[term]:
+#             # Belgium: { docId: 1, frequency: 1}
+#             document = db.get(appearance.docId)
+#             print(appearance.docId, ": ", document["text"])
+#         print("-----------------------------")
 
 
 if __name__ == "__main__":
