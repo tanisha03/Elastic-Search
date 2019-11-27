@@ -37,12 +37,14 @@ def search():
     if request.method == "POST":
         a = request.form["word"]
         result = index1.lookup_query(a)
+        a = []
         for term in result.keys():
             for appearance in result[term]:
                 # Belgium: { docId: 1, frequency: 1}
                 document = db.get(appearance.docId)
                 print(appearance.docId, ": ", document["text"])
-            return render_template("final.html", ans=document["text"])
+                a.append(document["text"])
+            return render_template("final.html", ans=a)
 
 
 def main():
