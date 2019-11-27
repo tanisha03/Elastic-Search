@@ -19,7 +19,7 @@ To run the app locally, follow the steps given below
 
 *The opening page is given below, you enter the various paragraphs you want separated by a new line:*
 
-![Screenshot from 2019-11-28 01-23-42](./static/images/Screenshot from 2019-11-28 01-23-42.png)
+![Screenshot from 2019-11-28 01-23-42](static/images/Screenshot from 2019-11-28 01-23-57.png)
 
 *After clicking on submit, you are redirected to a new page:*
 
