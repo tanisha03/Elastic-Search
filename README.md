@@ -16,7 +16,7 @@ To run the app locally, follow the steps given below
 `python3 main.py`
 
 
-## Using the app
+### Using the app
 
 *The opening page is given below, you enter the various paragraphs you want separated by a new line:*
 
