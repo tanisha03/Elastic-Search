@@ -27,6 +27,8 @@ To run the app locally, follow the steps given below
 
 *After clicking on submit, you are redirected to a new page:*
 
+![Screenshot from 2019-11-28 01-24-14](/home/tanisha/Documents/Elastic-Search/static/images/Screenshot from 2019-11-28 01-24-14.png)
+
 *Finally, the last page shows the paragraphs containing the given word using inverted indexing:*
 
 ![Screenshot from 2019-11-28 01-28-40](/home/tanisha/Documents/Elastic-Search/static/images/Screenshot from 2019-11-28 01-28-40-1574885321680.png)
