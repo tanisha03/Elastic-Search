@@ -1,12 +1,14 @@
 <!DOCTYPE html>
   <head>
-    <link rel="stylesheet" href="styles.css">
-  </head>
+      <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/main.css')}}">
+    </head>
   <body>
-    <div class="nav"></div>
-     <form action="{{url_for('search')}}" method="POST">
-      <input name="word" type="text" /><br />
-      <input value="Submit" type="submit" />
-    </form>
+    <div class="nav">TAP-SEARCH</div>
+      <div class="container">
+          <form action="{{url_for('search')}}" method="POST">
+              <input name="word" type="text" /><br />
+              <input value="Submit" type="submit" />
+            </form>
+      </div>
   </body>
 </html>
