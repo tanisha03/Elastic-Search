@@ -6,7 +6,7 @@
     <div class="nav">TAP-SEARCH</div>
     <div class="container">
         {% for a in ans%} 
-        <p class="content">{{a}}</p>
+        <p class="content">{{ans.index(a)+1}})  {{a[0]}}</p>
         {% endfor %}
     </div>
   </body>

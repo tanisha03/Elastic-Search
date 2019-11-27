@@ -43,8 +43,15 @@ def search():
                 # Belgium: { docId: 1, frequency: 1}
                 document = db.get(appearance.docId)
                 print(appearance.docId, ": ", document["text"])
-                a.append(document["text"])
-            return render_template("final.html", ans=a)
+                a.append((document["text"], appearance.frequency))
+        print(a, "-------------------------------------")
+        a = sorted(a, key=lambda x: x[1])
+        print(a, "-------------------------------------")
+        if a == []:
+            a.append("Not Found")
+        elif len(a) > 10:
+            a = a[0:10]
+        return render_template("final.html", ans=a)
 
 
 # def main():
